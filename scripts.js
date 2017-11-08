@@ -42,15 +42,42 @@ $.ajax({
 
       htmlString += '</div>';
 
-      // ADDING THE CLICKED USER TO A MODAL POP UP WINDOW
+      // ADDING 12 RANDOM USERS
+
 
     }); // end each loop
+
+    // ADDING THE CLICKED USER TO A MODAL POP UP WINDOW
+      // CHANGE: MAKING IT IN HTML and then ADDING TO IT
+      // htmlString += '<div class="modal">';
+
+      const grid = document.querySelector(".grid");
+
+      grid.addEventListener("click", function(event) {
+        // console.log("CLICKED");
+        // console.log(event.target);
+
+        let modalString = "";
+
+        // can use if === .item else .parent
+        // can use z-index?
+
+        // if (event.target.className === "item") {
+        //   console.log(event.target);
+        // } else {
+        //   console.log(event.target.parentNode);
+        // }
+        console.log(event.currentTarget.firstChild);
+
+
+      });
+
     $('.grid').html(htmlString);
 
-    $('.item').on("click", function(e) {
-      console.log("CLICKED");
+    // $('.item').on("click", function(e) {
+    //   console.log("CLICKED");
       // console.log(e.target);
-    });
+    // });
   }
 }); // end ajax
 
