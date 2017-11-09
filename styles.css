@@ -246,12 +246,13 @@ h1 {
 }
 
 /* SEARCH BAR */
-
 form {
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  text-align: center;
 }
 input {
+  width: 30%;
   color: #989898;
   font-weight: bold;
   border: solid 2px rgba(152, 152, 152, 0.5);
