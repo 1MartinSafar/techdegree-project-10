@@ -189,31 +189,41 @@ grid.addEventListener("click", function(event) {
     prev.addEventListener("click", function() {
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
-      console.log("CURRENT DETAILS:");
-      console.log(currentDetails);
+      // console.log("CURRENT DETAILS:");
+      // console.log(currentDetails);
 
       if (currentDetails.previousElementSibling.className !== "details") {
         console.log("NO MORE DETAILS HERE");
         // currentDetails.nextElementSibling.style.visibility = "visible";
         // currentDetails.nextElementSibling.style.display = "flex";
+
+        // Node.parentNode.lastChild
+
+        console.log(currentDetails.parentNode.lastChild.innerHTML);
+        currentDetails = currentDetails.parentNode.lastChild;
+
+        currentDetails.style.visibility = "visible";
+        currentDetails.style.display = "flex";
+
+
       }
       else {
-        console.log("CURRENT DETAILS:");
-        console.log(currentDetails);
+        // console.log("CURRENT DETAILS:");
+        // console.log(currentDetails);
 
         previousDetails = currentDetails.previousElementSibling;
-        console.log("PREVIOUS DETAILS:");
-        console.log(previousDetails);
+        // console.log("PREVIOUS DETAILS:");
+        // console.log(previousDetails);
 
-        console.log(previousDetails.innerHTML);
+        // console.log(previousDetails.innerHTML);
         previousDetails.style.visibility = "visible";
         previousDetails.style.display = "flex";
         currentDetails = previousDetails;
 
-        console.log("PREVIOUS DETAILS:");
-        console.log(previousDetails);
+        // console.log("PREVIOUS DETAILS:");
+        // console.log(previousDetails);
       }
-      // Node.parentNode.lastChild
+
 
 
     });
@@ -223,29 +233,45 @@ grid.addEventListener("click", function(event) {
     next.addEventListener("click", function() {
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
-      console.log("CURRENT DETAILS:");
-      console.log(currentDetails);
+      // console.log("CURRENT DETAILS:");
+      // console.log(currentDetails);
 
-      if (currentDetails.nextElementSibling.className !== "details") {
+      if (!(currentDetails.nextElementSibling) ||
+          currentDetails.nextElementSibling.className !== "details") {
         console.log("NO MORE DETAILS HERE");
         // currentDetails.nextElementSibling.style.visibility = "visible";
         // currentDetails.nextElementSibling.style.display = "flex";
+
+        // console.log("CURRENT DETAILS: " + currentDetails.innerHTML);
+        // console.log("CURRENT DETAILS: " + currentDetails.parentNode.firstElementChild.tagName);
+        // console.log(currentDetails.previousElementSibling.parentNode.firstChild.innerHTML);
+        // currentDetails = nextDetails.previousElementSibling.parentNode.lastChild;
+        currentDetails = currentDetails.parentNode.firstElementChild;
+
+        console.log("CURRENT DETAILS TAG: " + currentDetails.tagName);
+        while (currentDetails.className !== "details") {
+          currentDetails = currentDetails.nextElementSibling;
+          console.log("NEW: " + currentDetails.tagName);
+        }
+
+        currentDetails.style.visibility = "visible";
+        currentDetails.style.display = "flex";
       }
       else {
-        console.log("CURRENT DETAILS:");
-        console.log(currentDetails);
+        // console.log("CURRENT DETAILS:");
+        // console.log(currentDetails);
 
         nextDetails = currentDetails.nextElementSibling;
-        console.log("PREVIOUS DETAILS:");
-        console.log(nextDetails);
+        // console.log("PREVIOUS DETAILS:");
+        // console.log(nextDetails);
 
-        console.log(nextDetails.innerHTML);
+        // console.log(nextDetails.innerHTML);
         nextDetails.style.visibility = "visible";
         nextDetails.style.display = "flex";
         currentDetails = nextDetails;
 
-        console.log("PREVIOUS DETAILS:");
-        console.log(nextDetails);
+        // console.log("PREVIOUS DETAILS:");
+        // console.log(nextDetails);
       }
       // Node.parentNode.lastChild
 
