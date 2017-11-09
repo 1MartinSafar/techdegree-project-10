@@ -17,7 +17,7 @@ function capitalizeAll(str) {
 
 // DISPLAYING 12 RANDOM USERS
 $.ajax({
-  url: 'https://randomuser.me/api/?results=12&nat=us',
+  url: 'https://randomuser.me/api/?results=12&nat=us,gb,au,ca',
   dataType: 'json',
   success: function(data) {
     console.log(data);
@@ -33,13 +33,11 @@ $.ajax({
       let username = item["login"]["username"];
       let cell = item["cell"];
       let street = capitalizeAll(item["location"]["street"]);
-      // let city = capitalize(item["location"]["city"]);
       let state = capitalizeAll(item["location"]["state"]);
       let postcode = item["location"]["postcode"];
       let birthdate = item["dob"].slice(0,10);
 
       // ADDING 12 RANDOM USERS
-
       htmlString += '<div class="item">';
 
       htmlString += '<div class="pic-div">';
@@ -55,7 +53,6 @@ $.ajax({
       htmlString += '</div>';
 
       // ADDING 12 DETAILS
-
       modalString += '<div class="details">';
 
       modalString += '<div class="pic-div_details">';
@@ -312,7 +309,27 @@ grid.addEventListener("click", function(event) {
 
 
 
+// SEARCH function
 
+function search() {
+
+  let input = document.querySelector("#searchBar");
+  let filter = input.value.toUpperCase();
+
+  let grid = document.querySelector(".grid");
+  let items = document.querySelectorAll(".item");
+
+  for (let i = 0; i < items.length; i++) {
+    let item = items[i];
+    // console.log(item.lastElementChild.firstElementChild.textContent);
+    let name = item.lastElementChild.firstElementChild.textContent;
+    if (name.toUpperCase().indexOf(filter) > -1) {
+      items[i].style.display = "";
+    } else {
+      items[i].style.display = "none";
+    }
+  }
+}
 
 
 

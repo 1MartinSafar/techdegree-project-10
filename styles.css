@@ -245,10 +245,33 @@ h1 {
   margin-right: 0.25em;
 }
 
+/* SEARCH BAR */
 
+form {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+input {
+  color: #989898;
+  font-weight: bold;
+  border: solid 2px rgba(152, 152, 152, 0.5);
+  border-radius: 8px;
+  outline: none;
 
+  padding-top: 0.5em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  padding-bottom: 0.5em;
 
-
+  letter-spacing: 1px;
+}
+input::placeholder {
+  font-size: 0.85em;
+  font-weight: 300;
+}
+input:focus::placeholder {
+  visibility: hidden;
+}
 
 
 
