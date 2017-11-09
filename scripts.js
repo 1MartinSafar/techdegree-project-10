@@ -104,7 +104,8 @@ $.ajax({
       // });
 
     $('.grid').html(htmlString);
-    $('.modal').html(modalString);
+    // $('.modal').html(modalString);
+    $('.modal').append(modalString);
 
     // $('.item').on("click", function(e) {
     //   console.log("CLICKED");
@@ -126,6 +127,32 @@ $.ajax({
 //   console.log("CLICKED");
 //   console.log(event.target);
 // });
+
+const modal = document.querySelector(".modal");
+const modal_close = document.querySelector(".modal-close");
+const grid = document.querySelector(".grid");
+
+modal_close.addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+grid.addEventListener("click", function(event) {
+  // console.log("CLICKED: " + event.target.className);
+  if (event.target.className !== "grid") {
+    // console.log("ITEM CLICKED: " + event.target.className);
+    // console.log("ITEM DISPLAY ---before---: " + modal.style.display);
+    modal.style.display = "block";
+    // console.log("ITEM DISPLAY ---after---: " + modal.style.display);
+  }
+});
+
+
+
+
+
+
+
+
 
 
 
