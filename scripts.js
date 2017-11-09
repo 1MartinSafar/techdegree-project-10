@@ -131,18 +131,76 @@ $.ajax({
 const modal = document.querySelector(".modal");
 const modal_close = document.querySelector(".modal-close");
 const grid = document.querySelector(".grid");
+// let items = document.querySelectorAll(".item");
 
 modal_close.addEventListener("click", function() {
+  let details = document.querySelectorAll(".details");
   modal.style.display = "none";
-});
-
-grid.addEventListener("click", function(event) {
-  if (event.target.className !== "grid") {
-    modal.style.display = "block";
+  for (let i = 0; i < details.length; i++) {
+    details[i].style.visibility = "hidden";
+    details[i].style.display = "none";
   }
 });
 
+//     var array = [2, 9, 9];
+//     array.indexOf(2);     // 0
+//     array.indexOf(7);     // -1
 
+grid.addEventListener("click", function(event) {
+  let clicked = event.target;
+  let user = "";
+  const items = document.querySelectorAll(".item")
+  const details = document.querySelectorAll(".details")
+  if (clicked.className !== "grid") {
+    modal.style.display = "block";
+
+    if (clicked.className === "item") {
+      user = event.target;
+      console.log(user);
+    } else if ((clicked.className === "pic-div") || (clicked.className === "info_basic")) {
+      user = event.target.parentNode;
+      console.log(user);
+    } else {
+      user = event.target.parentNode.parentNode;
+      console.log(user);
+    }
+
+    for (let i = 0; i < items.length; i++) {
+      if (items[i] === user) {
+        console.log("ITEM FOUND: " + items[i].innerHTML);
+        details[i].style.visibility = "visible";
+        details[i].style.display = "flex";
+        console.log("DETAIL FOUND: " + details[i].innerHTML);
+      }
+    }
+  }
+
+  // let item = event.currentTarget.;
+  // if (clicked.className !== "grid") {
+    // modal.style.display = "block";
+
+    // const items = document.querySelectorAll(".item")
+    // const details = document.querySelectorAll(".details")
+    // console.log(items);
+    // console.log(details);
+
+
+    // var array = [2, 9, 9];
+    // array.indexOf(2);     // 0
+    // array.indexOf(7);     // -1
+  // }
+});
+
+// function display(event) {
+//   // let item = event.currentTarget;
+//   console.log(modal.style.display);
+//   modal.style.display = "block";
+//   console.log(modal.style.display);
+// };
+//
+// for (let i = 0; i < items.length; i++) {
+//     items[i].addEventListener('click', display);
+// }
 
 
 
