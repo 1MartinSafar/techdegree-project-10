@@ -156,23 +156,105 @@ grid.addEventListener("click", function(event) {
 
     if (clicked.className === "item") {
       user = event.target;
-      console.log(user);
+      // console.log(user);
     } else if ((clicked.className === "pic-div") || (clicked.className === "info_basic")) {
       user = event.target.parentNode;
-      console.log(user);
+      // console.log(user);
     } else {
       user = event.target.parentNode.parentNode;
-      console.log(user);
+      // console.log(user);
     }
-
+    // RESETTING all details to be hidden - in case the user
+    // clicks on another employee while the modal window is still open
+    for (let i = 0; i < details.length; i++) {
+      details[i].style.visibility = "hidden";
+      details[i].style.display = "none";
+    }
+    // DISPLAYING THE CORRECT EMPLOYEE DETAILS
+    let currentDetails = "";
+    let previousDetails = "";
+    let nextDetails = ""
     for (let i = 0; i < items.length; i++) {
       if (items[i] === user) {
-        console.log("ITEM FOUND: " + items[i].innerHTML);
+        // console.log("ITEM FOUND: " + items[i].innerHTML);
         details[i].style.visibility = "visible";
         details[i].style.display = "flex";
-        console.log("DETAIL FOUND: " + details[i].innerHTML);
+        // console.log("DETAIL FOUND: " + details[i].innerHTML);
+
+        currentDetails = details[i];
       }
     }
+    // MOVE BACK BETWEEN EMPLOYEE DETAILS INFO
+    const prev = document.querySelector(".modal-prev");
+    prev.addEventListener("click", function() {
+      currentDetails.style.visibility = "hidden";
+      currentDetails.style.display = "none";
+      console.log("CURRENT DETAILS:");
+      console.log(currentDetails);
+
+      if (currentDetails.previousElementSibling.className !== "details") {
+        console.log("NO MORE DETAILS HERE");
+        // currentDetails.nextElementSibling.style.visibility = "visible";
+        // currentDetails.nextElementSibling.style.display = "flex";
+      }
+      else {
+        console.log("CURRENT DETAILS:");
+        console.log(currentDetails);
+
+        previousDetails = currentDetails.previousElementSibling;
+        console.log("PREVIOUS DETAILS:");
+        console.log(previousDetails);
+
+        console.log(previousDetails.innerHTML);
+        previousDetails.style.visibility = "visible";
+        previousDetails.style.display = "flex";
+        currentDetails = previousDetails;
+
+        console.log("PREVIOUS DETAILS:");
+        console.log(previousDetails);
+      }
+      // Node.parentNode.lastChild
+
+
+    });
+
+    // MOVE FORTH BETWEEN EMPLOYEE DETAILS INFO
+    const next = document.querySelector(".modal-next");
+    next.addEventListener("click", function() {
+      currentDetails.style.visibility = "hidden";
+      currentDetails.style.display = "none";
+      console.log("CURRENT DETAILS:");
+      console.log(currentDetails);
+
+      if (currentDetails.nextElementSibling.className !== "details") {
+        console.log("NO MORE DETAILS HERE");
+        // currentDetails.nextElementSibling.style.visibility = "visible";
+        // currentDetails.nextElementSibling.style.display = "flex";
+      }
+      else {
+        console.log("CURRENT DETAILS:");
+        console.log(currentDetails);
+
+        nextDetails = currentDetails.nextElementSibling;
+        console.log("PREVIOUS DETAILS:");
+        console.log(nextDetails);
+
+        console.log(nextDetails.innerHTML);
+        nextDetails.style.visibility = "visible";
+        nextDetails.style.display = "flex";
+        currentDetails = nextDetails;
+
+        console.log("PREVIOUS DETAILS:");
+        console.log(nextDetails);
+      }
+      // Node.parentNode.lastChild
+
+
+    });
+
+
+
+
   }
 
   // let item = event.currentTarget.;
