@@ -137,12 +137,8 @@ modal_close.addEventListener("click", function() {
 });
 
 grid.addEventListener("click", function(event) {
-  // console.log("CLICKED: " + event.target.className);
   if (event.target.className !== "grid") {
-    // console.log("ITEM CLICKED: " + event.target.className);
-    // console.log("ITEM DISPLAY ---before---: " + modal.style.display);
     modal.style.display = "block";
-    // console.log("ITEM DISPLAY ---after---: " + modal.style.display);
   }
 });
 

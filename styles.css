@@ -109,6 +109,8 @@ h1 {
 }
 
 .modal {
+  display: none;
+
   width: 50%;
   height: 50%;
   width: 400px;
