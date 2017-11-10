@@ -184,23 +184,48 @@ grid.addEventListener("click", function(event) {
     // MOVE BACK BETWEEN EMPLOYEE DETAILS INFO
     const prev = document.querySelector(".modal-prev");
     prev.addEventListener("click", function() {
+      // RESETTING
+      for (let i = 0; i < details.length; i++) {
+      details[i].style.visibility = "hidden";
+      details[i].style.display = "none";
+    }
+
+      // let previousDetails = "";
+      // let nextDetails = "";
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
       // console.log("CURRENT DETAILS:");
       // console.log(currentDetails);
+      console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      console.log("PREV CLICKED, CURRENTLY: ");
+      console.log("currentDetails: " + currentDetails.textContent);
+      console.log("previousDetails: " + previousDetails.textContent);
+      console.log("nextDetails: " + nextDetails.textContent);
 
       if (currentDetails.previousElementSibling.className !== "details") {
-        console.log("NO MORE DETAILS HERE");
+        console.log(">>>>> AT THE BEGINNING <<<<<");
         // currentDetails.nextElementSibling.style.visibility = "visible";
         // currentDetails.nextElementSibling.style.display = "flex";
 
         // Node.parentNode.lastChild
 
-        console.log(currentDetails.parentNode.lastChild.innerHTML);
-        currentDetails = currentDetails.parentNode.lastChild;
+        // console.log(currentDetails.parentNode.lastElementChild.innerHTML);
+        currentDetails = currentDetails.parentNode.lastElementChild;
+
+        // // TESTING
+        // while (currentDetails.className !== "details") {
+        //   currentDetails = currentDetails.previousElementSibling;
+        //   // console.log("NEW: " + currentDetails.tagName);
+        // }
+
+        previousDetails = currentDetails;
 
         currentDetails.style.visibility = "visible";
         currentDetails.style.display = "flex";
+        console.log("SHOWING: " + currentDetails.textContent);
+
+        // SOMETHING WRONG WITH THE PREVIOUS EMPLOYEE NOT RESETTING,
+        // KEEPS GOING BACK FROM THE LAST ITEM THAT WAS USED AS BACK
 
 
       }
@@ -221,6 +246,11 @@ grid.addEventListener("click", function(event) {
         // console.log(previousDetails);
       }
 
+      console.log("NEWLY: ");
+      console.log("currentDetails: " + currentDetails.textContent);
+      console.log("previousDetails: " + previousDetails.textContent);
+      console.log("nextDetails: " + nextDetails.textContent);
+
 
 
     });
@@ -228,14 +258,25 @@ grid.addEventListener("click", function(event) {
     // MOVE FORTH BETWEEN EMPLOYEE DETAILS INFO
     const next = document.querySelector(".modal-next");
     next.addEventListener("click", function() {
+      // RESETTING
+      for (let i = 0; i < details.length; i++) {
+      details[i].style.visibility = "hidden";
+      details[i].style.display = "none";
+    }
+
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
       // console.log("CURRENT DETAILS:");
       // console.log(currentDetails);
+      console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+      console.log("NEXT CLICKED, CURRENTLY: ");
+      console.log("currentDetails: " + currentDetails.textContent);
+      console.log("previousDetails: " + previousDetails.textContent);
+      console.log("nextDetails: " + nextDetails.textContent);
 
       if (!(currentDetails.nextElementSibling) ||
           currentDetails.nextElementSibling.className !== "details") {
-        console.log("NO MORE DETAILS HERE");
+        console.log(">>>>> AT THE END <<<<<");
         // currentDetails.nextElementSibling.style.visibility = "visible";
         // currentDetails.nextElementSibling.style.display = "flex";
 
@@ -245,14 +286,16 @@ grid.addEventListener("click", function(event) {
         // currentDetails = nextDetails.previousElementSibling.parentNode.lastChild;
         currentDetails = currentDetails.parentNode.firstElementChild;
 
-        console.log("CURRENT DETAILS TAG: " + currentDetails.tagName);
+        // console.log("CURRENT DETAILS TAG: " + currentDetails.tagName);
         while (currentDetails.className !== "details") {
           currentDetails = currentDetails.nextElementSibling;
-          console.log("NEW: " + currentDetails.tagName);
+          // console.log("NEW: " + currentDetails.tagName);
         }
 
+        nextDetails = currentDetails;
         currentDetails.style.visibility = "visible";
         currentDetails.style.display = "flex";
+        console.log("SHOWING: " + currentDetails.textContent);
       }
       else {
         // console.log("CURRENT DETAILS:");
@@ -271,6 +314,10 @@ grid.addEventListener("click", function(event) {
         // console.log(nextDetails);
       }
       // Node.parentNode.lastChild
+      console.log("NEWLY: ");
+      console.log("currentDetails: " + currentDetails.textContent);
+      console.log("previousDetails: " + previousDetails.textContent);
+      console.log("nextDetails: " + nextDetails.textContent);
 
 
     });
