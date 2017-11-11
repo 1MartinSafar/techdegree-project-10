@@ -44,8 +44,10 @@ $.ajax({
 
       htmlString += '<div class="info_basic">';
       htmlString += '<h2 class="name">' + first_name + ' ' + last_name + '</h2>';
+      // NEW
+      htmlString += '<span class="username">' + username + '</span>';
       htmlString += '<span class="email">' + email + '</span>';
-      htmlString += '<span class="city">' + city + '</span>';
+      htmlString += '<span class="city">' + city + ", " + state + '</span>';
       htmlString += '</div>';
 
       htmlString += '</div>';
