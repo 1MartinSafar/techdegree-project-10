@@ -1,5 +1,5 @@
 /* ======================================================================
-                        MOBILE 320px
+                        GENERAL STYLING
 ========================================================================= */
 
 * {
@@ -16,14 +16,9 @@ html, body {
 }
 
 .container {
-  /*width: 90%;*/
-  max-width: 1024px;
   max-width: 1200px;
-  /*height: 100%;*/
   display: flex;
   flex-direction: column;
-  /*justify-content: center;*/
-  /*align-items: center;*/
   margin: 0 auto;
 }
 
@@ -43,19 +38,10 @@ h1 {
 ========================================================================= */
 
 .grid {
-  /*width: 100%;*/
-  /*height: 100%;*/
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(4, 1fr);
   grid-gap: 30px;
-  /*grid-template-columns: repeat(4, minmax());*/
-  /*grid-template-columns: repeat(auto-fill, minmax());*/
-  /*grid-row-start */
-  /*grid-row-end */
-  /*grid-column-start */
-  /*grid-column-end */
-  /*overflow: hidden;*/
 }
 
 .item {
@@ -74,24 +60,20 @@ h1 {
 }
 .item:hover {
   cursor: pointer;
-  border: none;
+  border-color: transparent;
   box-shadow: 0 0 1em 0.4em #2ef7dd;
 }
 
 .pic-div {
-  width: 30%;
   width: 31%;
   margin-left: 1em;
   margin-right: 1em;
 }
 .picture {
   width: 100%;
-  /*width: 100px;*/
-  /*height: 100px;*/
   border-radius: 50%;
 }
 .info_basic {
-  width: 70%;
   width: 69%;
   display: flex;
   flex-direction: column;
@@ -110,23 +92,17 @@ h1 {
 
 .modal {
   display: none;
-
-  width: 50%;
-  height: 50%;
   width: 400px;
   height: 500px;
   position: absolute;
   top: 20%;
-  /*top: 0;*/
   left: 50%;
-  /*left: 100%;*/
   z-index: 10;
+  overflow: hidden;
   background-color: #f2f2f2;
   border-radius: 8px;
 
   margin-left: -200px;
-
-  overflow: hidden;
 }
 .modal-clicked {
   top: 20%;
@@ -158,14 +134,12 @@ h1 {
 
 .details {
   visibility: hidden;
-
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
 }
 .pic-div_details {
@@ -180,10 +154,6 @@ h1 {
   display: flex;
   flex-direction: column;
   text-align: center;
-}
-.name {
-  margin-bottom: 0.5em;
-  font-size: 1.2em;
 }
 .username {
   color: #505050;
@@ -200,14 +170,8 @@ h1 {
   border-top: 1px solid #c6c6c6;
   margin-bottom: 1em;
 }
-.street {
-  /**/
-}
 .state_postcode_city {
   margin-bottom: 1em;
-}
-.birthdate {
-  /**/
 }
 
 .modal-close {
@@ -223,23 +187,17 @@ h1 {
 
 .modal-prev,
 .modal-next {
-  font-size: 30px;
   font-size: 4em;
   line-height: 20px;
   cursor: pointer;
   position: absolute;
-  /*margin-top: 1em;*/
 }
 .modal-prev {
   top: 50%;
   left: 0;
   margin-left: 0.25em;
-  /*top: 0;*/
-  /*margin-left: 1em;*/
-  /*margin-left: 0.5em;*/
 }
 .modal-next {
-  /*margin-left: 2em;*/
   top: 50%;
   right: 0;
   margin-right: 0.25em;
@@ -273,6 +231,8 @@ input::placeholder {
 input:focus::placeholder {
   visibility: hidden;
 }
+
+
 
 
 
