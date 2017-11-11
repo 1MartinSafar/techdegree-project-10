@@ -19,7 +19,6 @@ $.ajax({
   url: 'https://randomuser.me/api/?results=12&nat=us,gb,au,ca',
   dataType: 'json',
   success: function(data) {
-    console.log(data);
     let htmlString = "";
     let modalString = "";
     $.each(data.results, function(i, item) {
@@ -95,6 +94,7 @@ grid.addEventListener("click", function(event) {
   let user = "";
   const items = document.querySelectorAll(".item")
   const details = document.querySelectorAll(".details")
+
   if (clicked.className !== "grid") {
     modal.style.display = "block";
 
@@ -132,19 +132,12 @@ grid.addEventListener("click", function(event) {
     }
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
-      console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-      console.log("PREV CLICKED, CURRENTLY: ");
-      console.log("currentDetails: " + currentDetails.textContent);
-      console.log("previousDetails: " + previousDetails.textContent);
-      console.log("nextDetails: " + nextDetails.textContent);
 
       if (currentDetails.previousElementSibling.className !== "details") {
-        console.log(">>>>> AT THE BEGINNING <<<<<");
         currentDetails = currentDetails.parentNode.lastElementChild;
         previousDetails = currentDetails;
         currentDetails.style.visibility = "visible";
         currentDetails.style.display = "flex";
-        console.log("SHOWING: " + currentDetails.textContent);
       }
       else {
         previousDetails = currentDetails.previousElementSibling;
@@ -152,10 +145,6 @@ grid.addEventListener("click", function(event) {
         previousDetails.style.display = "flex";
         currentDetails = previousDetails;
       }
-      console.log("NEWLY: ");
-      console.log("currentDetails: " + currentDetails.textContent);
-      console.log("previousDetails: " + previousDetails.textContent);
-      console.log("nextDetails: " + nextDetails.textContent);
     }); // end prev
 
     // MOVE FORTH BETWEEN EMPLOYEE DETAILS INFO
@@ -169,15 +158,9 @@ grid.addEventListener("click", function(event) {
 
       currentDetails.style.visibility = "hidden";
       currentDetails.style.display = "none";
-      console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-      console.log("NEXT CLICKED, CURRENTLY: ");
-      console.log("currentDetails: " + currentDetails.textContent);
-      console.log("previousDetails: " + previousDetails.textContent);
-      console.log("nextDetails: " + nextDetails.textContent);
 
       if (!(currentDetails.nextElementSibling) ||
           currentDetails.nextElementSibling.className !== "details") {
-        console.log(">>>>> AT THE END <<<<<");
         currentDetails = currentDetails.parentNode.firstElementChild;
         while (currentDetails.className !== "details") {
           currentDetails = currentDetails.nextElementSibling;
@@ -185,7 +168,6 @@ grid.addEventListener("click", function(event) {
         nextDetails = currentDetails;
         currentDetails.style.visibility = "visible";
         currentDetails.style.display = "flex";
-        console.log("SHOWING: " + currentDetails.textContent);
       }
       else {
         nextDetails = currentDetails.nextElementSibling;
@@ -193,10 +175,6 @@ grid.addEventListener("click", function(event) {
         nextDetails.style.display = "flex";
         currentDetails = nextDetails;
       }
-      console.log("NEWLY: ");
-      console.log("currentDetails: " + currentDetails.textContent);
-      console.log("previousDetails: " + previousDetails.textContent);
-      console.log("nextDetails: " + nextDetails.textContent);
     }); // end next
   }
 }); // end grid events
