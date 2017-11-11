@@ -197,6 +197,10 @@ function search() {
     } else {
       items[i].style.display = "none";
     }
+    let username = item.lastElementChild.firstElementChild.nextElementSibling.textContent;
+    if (username.toUpperCase().indexOf(filter) > -1) {
+      items[i].style.display = "";
+    }
   }
 }
 
